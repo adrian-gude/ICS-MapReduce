@@ -11,7 +11,7 @@ for line in sys.stdin:
     
     temperature = float(words[1])
     condition = words[0]
-    file_name = words[2]
+    city = words[2]
 
     if condition == "hot" and temperature > max_hot_temp:
         max_hot_temp = temperature
@@ -19,5 +19,5 @@ for line in sys.stdin:
     elif condition == "cold" and temperature < max_cold_temp:
         max_cold_temp = temperature
 
-print '%s\t%s\t%s' % ('hotest',max_hot_temp,file_name)
-print '%s\t%s\t%s' % ('coldest',max_cold_temp,file_name)
+print '%s\t%s\t%s' % ('hotest', city, max_hot_temp)
+print '%s\t%s\t%s' % ('coldest', city, max_cold_temp)
