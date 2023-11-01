@@ -1,0 +1,4 @@
+
+cat libros/4300-0.txt | python mapper.py
+
+cat libros/4300-0.txt libros/5000-8.txt| python mapper.py
