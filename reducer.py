@@ -20,7 +20,7 @@ for line in sys.stdin:
         number_entries = 0
         current_user = user
 
-    number_entries += 1
+    number_entries = number_entries + 1
     if number_entries > most_entries_user:
         most_entries_user = user
         number_most_entries = number_entries
@@ -30,7 +30,7 @@ for line in sys.stdin:
         number_entries_file = 0
         current_file = file
 
-    number_entries_file += 1
+    number_entries_file = number_entries_file + 1
     if number_entries_file > most_entries_file:
         most_entries_file = file
         number_most_entries_file = number_entries_file
@@ -40,7 +40,8 @@ if number_entries_file > most_entries_file:
     most_entries_file = file
     number_most_entries_file = number_entries_file
 
+if most_entries_user:
+    print '%s\t%s' % (most_entries_user, number_most_entries)
 
-print '%s\t%s' % (most_entries_user, number_most_entries)
-print '%s\t%s' % (most_entries_file, number_most_entries_file)
-
+if most_entries_file:
+    print '%s\t%s' % (most_entries_file, number_most_entries_file)
