@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 import sys
+import os
+
+file_name = os.environ["mapreduce_map_input_file"]
+user = file_name.split(".")[0].split("con")[1]
 
 for line in sys.stdin:
-    # Dividir la linea en campos
-    fields = line.strip().split()
-    
-    if len(fields) == 24:
-        station_id = fields[0]
-        date = fields[1]
-        temperature = float(fields[2])
-        
-        if date.startswith("2017") and temperature != -9999.0:
-            if temperature > 27.0:
-                print '%s\t%s' % (station_id,temperature)
-            elif temperature < -10.0:
-                print '%s\t%s' % (station_id,temperature)
+    line = line.strip()
+    words = line.split()
+
+    file = words[3].strip("\"")
+    extension = file[-3:]
+
+    if extension == ".ps":
+        print '%s\t%s' % (user, file)

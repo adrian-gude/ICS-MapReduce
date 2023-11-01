@@ -2,25 +2,45 @@
 import sys
 
 
-max_hot_city = None
-max_hot_temp = -float('inf')
-max_cold_city = None
-max_cold_temp = float('inf')
+current_user = None
+number_entries = 0
+most_entries_user = None
+number_most_entries = 0
+
+current_file = None
+number_entries_file = 0
+most_entries_file = None
+number_most_entries_file = 0
 
 for line in sys.stdin:
-    fields = line.strip().split("\t")
-    station_id = fields[0]
-    temperature = float(fields[1])
-    condition = fields[2]
+    words = line.strip().split("\t")
 
-    if condition == "Hot" and temperature > max_hot_temp:
-        max_hot_city = station_id
-        max_hot_temp = temperature
-    elif condition == "Cold" and temperature < max_cold_temp:
-        max_cold_city = station_id
-        max_cold_temp = temperature
+    user = words[0]
+    if current_user != user:
+        number_entries = 0
+        current_user = user
 
-if max_hot_city:
-    print '%s\t%s' % ('hotest',max_hot_city)
-if max_cold_city:
-    print '%s\t%s' % ('coldest',max_cold_city)
+    number_entries += 1
+    if number_entries > most_entries_user:
+        most_entries_user = user
+        number_most_entries = number_entries
+
+    file = words[1]
+    if current_file != file:
+        number_entries_file = 0
+        current_file = file
+
+    number_entries_file += 1
+    if number_entries_file > most_entries_file:
+        most_entries_file = file
+        number_most_entries_file = number_entries_file
+
+
+if number_entries_file > most_entries_file:
+    most_entries_file = file
+    number_most_entries_file = number_entries_file
+
+
+print '%s\t%s' % (most_entries_user, number_most_entries)
+print '%s\t%s' % (most_entries_file, number_most_entries_file)
+
