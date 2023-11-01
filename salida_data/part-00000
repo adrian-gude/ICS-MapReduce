@@ -1,0 +1,2 @@
+hotest	51.8	hdfs://quickstart.cloudera:8020/user/root/data/CRND0103-2017-MS_Holly_Springs_4_N.txt
+coldest	-9999.0	hdfs://quickstart.cloudera:8020/user/root/data/CRND0103-2017-MS_Holly_Springs_4_N.txt
