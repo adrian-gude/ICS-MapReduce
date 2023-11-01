@@ -1,3 +1,0 @@
-libros/4300-0.txt
-libros/5000-8.txt
-libros/pg20417.txt
