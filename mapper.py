@@ -19,5 +19,5 @@ for line in sys.stdin:
         if max_temperature > 27.0:
             print '%s\t%s\t%s' % ("hot", max_temperature, city)
 
-        elif min_temperature < -10.0:
+        elif min_temperature < -1.0 and min_temperature != -9999.0:
             print '%s\t%s\t%s' % ("cold", min_temperature, city)
