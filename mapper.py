@@ -15,4 +15,5 @@ for line in sys.stdin:
     extension = file[-3:]
 
     if extension == ".ps":
-        print '%s\t%s' % (user, file)
+        print '%s\t%s' % (user, "user")
+        print '%s\t%s' % (file, "file")
