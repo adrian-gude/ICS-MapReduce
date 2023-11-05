@@ -6,7 +6,7 @@ import os
 
 file_name = os.environ["mapreduce_map_input_file"]
 wine_name = file_name.split("winequality-")[1].split(".csv")[0]
-#wine_name = "vinaso"
+
 for line in sys.stdin:
     line = line.strip()
     words = line.split(";")

@@ -76,7 +76,7 @@ for line in sys.stdin:
         if n_free_sulfur_dioxide:
             print '%s\t%s\t%s' % (current_wine, "free sulfur dioxide", free_sulfur_dioxide / n_free_sulfur_dioxide)
         else:
-            print '%s\t%s\t%s' % (current_wine, "free sulfur dioxide", free_sulfur_dioxide / n_free_sulfur_dioxide)
+            print '%s\t%s\t%s' % (current_wine, "free sulfur dioxide", 0)
 
         if n_total_sulfur_dioxide:
             print '%s\t%s\t%s' % (current_wine, "total sulfur dioxide", total_sulfur_dioxide / n_total_sulfur_dioxide)
@@ -155,11 +155,11 @@ for line in sys.stdin:
 
     if attribute == "volatile acidity":
         volatile_acidity += float(attribute_value)
-        n_fixed_acidity += 1
+        n_volatile_acidity += 1
 
     if attribute == "citric acid":
-        fixed_acidity += float(attribute_value)
-        n_volatile_acidity += 1
+        citric_acid += float(attribute_value)
+        n_citric_acid += 1
 
     if attribute == "residual sugar":
         residual_sugar += float(attribute_value)
@@ -229,7 +229,7 @@ if current_wine:
     if n_free_sulfur_dioxide:
         print '%s\t%s\t%s' % (current_wine, "free sulfur dioxide", free_sulfur_dioxide / n_free_sulfur_dioxide)
     else:
-        print '%s\t%s\t%s' % (current_wine, "free sulfur dioxide", free_sulfur_dioxide / n_free_sulfur_dioxide)
+        print '%s\t%s\t%s' % (current_wine, "free sulfur dioxide", 0)
 
     if n_total_sulfur_dioxide:
         print '%s\t%s\t%s' % (current_wine, "total sulfur dioxide", total_sulfur_dioxide / n_total_sulfur_dioxide)
